@@ -35,6 +35,5 @@ services:
             - nodejs-app
         networks:
             - example-net
-
 networks:
   example-net:
