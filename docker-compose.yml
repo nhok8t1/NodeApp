@@ -6,16 +6,17 @@ services:
           context: ./nodedocker_app
         container_name: nodejsserver
         hostname: nodejsserver
+        restart: always
         ports:
             - "3000:3000" 
         networks:
             - example-net
-
         depends_on:
             - mongo
     mongo:
         container_name: mongo
         image: mongo
+        restart: always
         volumes:
             - ./data:/data/db
         ports:
@@ -27,6 +28,7 @@ services:
           context: ./nginx
         container_name: nginx
         hostname: nginx
+        restart: always
         ports:
             - "80:80" 
         depends_on:
@@ -36,4 +38,3 @@ services:
 
 networks:
   example-net:
-    external: true
