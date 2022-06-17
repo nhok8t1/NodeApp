@@ -12,6 +12,11 @@ services:
             - example-net
         depends_on:
             - mongo
+        logging:
+            driver: "fluentd"
+            options:
+                fluentd-address: localhost:24224
+                tag: nodejs.access
     mongo:
         container_name: mongo
         image: mongo
